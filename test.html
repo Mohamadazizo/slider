@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css">
+    <title>Tests</title>
+</head>
+<body>
+    <div class="container">
+        <div class="img">
+            <span class="befor" onclick="slid(-1)"></span>
+            <span class="after" onclick="slid(1)"></span>
+            <img src="/images/shuffle-1.jpg" alt="">
+            <img src="/images/shuffle-2.jpg" alt="">
+            <img src="/images/shuffle-3.jpg" alt="">
+            <img src="/images/shuffle-4.jpg" alt="">
+            <img src="/images/shuffle-5.jpg" alt="">
+        </div>
+        <div class="slider">
+            <span onclick = " btnimg(1)"></span>
+            <span onclick = " btnimg(2)"></span>
+            <span onclick = " btnimg(3)"></span>
+            <span onclick = " btnimg(4)"></span>
+            <span onclick = " btnimg(5)"></span>
+        </div>
+    </div>
+    <script>
+        let  a = 1;
+        switchimg(a);
+        function btnimg(e){switchimg(a = e); };
+        function slid(e){switchimg(a += e)};
+        function switchimg(e){
+        var img = document.querySelectorAll("img");
+        var slider = document.querySelectorAll(".slider span");
+            if( e > img.length ){ a = 1};
+            if( e < 1 ){ a = img.length};
+            for ( var i = 0 ; i < img.length ; i++){
+                img[i].style.display = "none";
+                slider[i].style.backgroundColor = "white";
+            }
+            img[a-1].style.display = "block";
+            slider[a-1].style.backgroundColor = "rgb(104, 104, 104)";
+        }
+    </script>
+</body>
+</html>
